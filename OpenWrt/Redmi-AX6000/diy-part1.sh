@@ -16,5 +16,8 @@
 # Add a feed source
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-sed -i '/luci/d' feeds.conf.default
-echo 'src-git luci https://github.com/coolsnowwolf/luci' >> feeds.conf.default
+git clone https://github.com/coolsnowwolf/lede tmp/coolsnowwolf/lede
+echo "src-link coolsnowwolf_lede $PWD/tmp/coolsnowwolf/lede/package/lean" >> feeds.conf.default
+echo 'src-git coolsnowwolf_packages https://github.com/coolsnowwolf/packages' >> feeds.conf.default
+echo 'src-git coolsnowwolf_luci https://github.com/coolsnowwolf/luci' >> feeds.conf.default
+echo 'src-git coolsnowwolf_routing https://github.com/coolsnowwolf/routing' >> feeds.conf.default
